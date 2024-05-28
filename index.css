@@ -1,0 +1,57 @@
+:root {
+  &:has(.theme [value="dark"]:checked) {
+    --background: #000;
+    --color: #fff;
+    --line-color: hotpink;
+  }
+  &:has(.theme [value="light"]:checked) {
+    --background: #ddd;
+    --color: #000;
+    --line-color: rgb(219, 193, 130);
+    --buttom-background: #0001;
+  }
+  &:has(.theme [value="color"]:checked) {
+    --background: linear-gradient(60deg, maroon, darkblue);
+    --color: #aff;
+    --line-color: #f55;
+    --content-background: #0004;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--background);
+  color: var(--color);
+  min-height: 80vh;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+select {
+  font: inherit;
+  position: fixed;
+  left: 1em;
+  top: 1em;
+  padding: 1em;
+}
+.content {
+  width: 100%;
+  max-width: 50ch;
+  padding: 2em;
+  background-color: var(--content-background);
+}
+h1 {
+  text-decoration: underline;
+  text-decoration-color: var(--line-color, currentcolor);
+}
+button {
+  padding: 1em 2em;
+  background: none;
+  background-color: var(--buttom-background, #fff3);
+  color: var(--color);
+  border: 2px solid var(--line-color, currentcolor);
+}
